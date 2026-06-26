@@ -177,9 +177,10 @@ sup a:hover { text-decoration: underline; }
 /* theme toggle button */
 .theme-toggle { display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
 .theme-toggle:hover { background: var(--card); color: var(--accent); border-color: var(--accent); }
-.theme-toggle .i-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+.theme-toggle .i-moon { display: none; }
+.theme-toggle .i-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .i-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: block; }
 
 /* ---------- dark mode (home page) ---------- */
 :root { color-scheme: light; }
@@ -203,3 +204,27 @@ sup a:hover { text-decoration: underline; }
 :root[data-theme="dark"] .footer__notes li { color: rgba(233,241,238,.5); }
 :root[data-theme="dark"] .footer__notes a { color: rgba(233,241,238,.85); }
 :root[data-theme="dark"] .btn--solid:hover { background: var(--accent); color: #06120e; }
+
+/* ---------- accessibility (WCAG 2.1 AA) ---------- */
+:root { --accent-text: #0a5d51; }                          /* accessible teal for small text on light */
+:root[data-theme="dark"] {
+  --accent: #0E7C6C; --accent-2: #0A5D51;                  /* keep accent dark so white text on it passes */
+  --accent-text: #2bbfa3;                                  /* brighter teal for small text on dark */
+}
+.eyebrow { color: var(--accent-text); }
+sup a { color: var(--accent-text); }
+.footer__legal { color: rgba(245,242,236,.6); }            /* was .4 (failed contrast) */
+:root[data-theme="dark"] .footer__notes li { color: rgba(233,241,238,.66); }
+:root[data-theme="dark"] .btn--solid:hover { color: #fff; }
+
+/* visible keyboard focus (WCAG 2.4.7) */
+a:focus-visible, button:focus-visible, input:focus-visible, .theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-text); outline-offset: 2px; border-radius: 4px;
+}
+
+/* skip link (WCAG 2.4.1) */
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 200; background: var(--ink); color: var(--paper); padding: .7em 1.1em; border-radius: 0 0 8px 0; font-weight: 600; text-decoration: none; }
+.skip-link:focus { left: 0; }
+
+/* honor reduced-motion */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

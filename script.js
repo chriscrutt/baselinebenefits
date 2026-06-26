@@ -8,14 +8,33 @@
 
   // ---- dark mode toggle (theme set early by inline <head> script) ----
   var themeToggle = document.getElementById("themeToggle");
+  function setThemeLabel() {
+    if (!themeToggle) return;
+    var dark = document.documentElement.getAttribute("data-theme") === "dark";
+    themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    themeToggle.setAttribute("aria-pressed", String(dark));
+  }
+  setThemeLabel();
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
       var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       document.documentElement.setAttribute("data-theme", next);
       try { localStorage.setItem("theme", next); } catch (e) {}
+      setThemeLabel();
       track("theme_toggle", { theme: next });
     });
   }
+
+  // follow the OS theme live, unless the visitor has chosen one manually
+  try {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    mq.addEventListener("change", function (e) {
+      if (!localStorage.getItem("theme")) {
+        document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+        setThemeLabel();
+      }
+    });
+  } catch (e) {}
 
   // sticky nav border
   var nav = document.getElementById("nav");
