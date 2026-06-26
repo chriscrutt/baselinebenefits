@@ -39,6 +39,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{font-family:var(--sans);background:var(--ink);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
+body:focus{outline:none}
 
 .slide{position:fixed;inset:0;display:none;flex-direction:column;justify-content:center;
   background:var(--paper);padding:clamp(2rem,6vw,6rem);overflow:auto}
@@ -255,7 +256,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
       <div class="row"><span class="who">Health apps</span><span class="gap">no financial layer</span></div>
       <div class="row row--us"><span class="who">Baseline</span><span class="gap">connects all of it</span></div>
     </div>
-    <p class="punch">Our edge: we see the <span class="accent">whole picture</span>, not one piece.</p>
+    <p class="punch">Baseline is the <span class="accent">only one</span> connected to your prices, insurance, HSA, and bank.</p>
   </div>
 </section>
 
@@ -314,7 +315,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 </section>
 
 <a class="home" href="/" aria-label="Back to homepage" title="Home (Esc)">&times;</a>
-<div class="hint">scroll or ← → to move · esc to exit</div>
+<div class="hint">← → or scroll to move · ✕ (top-left) or Esc to exit</div>
 <nav class="nav">
   <button id="prev" aria-label="Previous slide">‹</button>
   <span class="counter" id="counter">1 / 10</span>
@@ -347,10 +348,11 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
     else if(e.key==='Home'){show(0);}
     else if(e.key==='End'){show(slides.length-1);}
-    else if(e.key==='Escape'){window.location.href='/';}
+    else if(e.key==='Escape'||e.key==='Esc'||e.keyCode===27){window.location.href='/';}
   });
-  document.getElementById('next').onclick=next;
-  document.getElementById('prev').onclick=prev;
+  function focusDeck(){try{document.body.focus();}catch(e){}}
+  document.getElementById('next').onclick=function(){next();focusDeck();};
+  document.getElementById('prev').onclick=function(){prev();focusDeck();};
   var x0=null;
   document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   document.addEventListener('touchend',function(e){
@@ -366,6 +368,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   },{passive:true});
   var m=location.hash.match(/^#s(\d+)/);
   show(m?parseInt(m[1],10)-1:0);
+  document.body.tabIndex=-1; focusDeck();
 })();
 </script>
 </body>
