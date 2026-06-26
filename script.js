@@ -25,7 +25,7 @@
   });
 
   // waitlist -> Google Sheet (Apps Script) + GA conversion
-  var WAITLIST_ENDPOINT = ""; // <-- paste your Apps Script web-app /exec URL here
+  var WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbxeKWFLL3AgQ4pgrVlgbZMJgJOZ4jCBJqQDfy4fJ3kCEUcfQd-hP6q0J4_AayFBP9jo/exec";
   var form = document.getElementById("waitlist");
   if (form) {
     var msg = document.getElementById("ctaMsg");
