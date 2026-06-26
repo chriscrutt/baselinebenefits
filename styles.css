@@ -164,3 +164,12 @@ sup a:hover { text-decoration: underline; }
   .steps li { flex-direction: row; align-items: center; }
   .points { grid-template-columns: 1fr; }
 }
+
+/* readability: bump small content type (no content under ~13px) */
+.eyebrow { font-size: .95rem; }
+.footer p { font-size: .95rem; }
+.footer__notes li { font-size: .9rem; }
+.phone__saved { font-size: .82rem; }
+.fcard__sub { font-size: .9rem; }
+.fcard__rec { font-size: .85rem; }
+.phone__note { font-size: .9rem; }
