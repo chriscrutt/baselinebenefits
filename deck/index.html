@@ -39,6 +39,8 @@ h1{font-size:clamp(2.6rem,7vw,5.2rem);font-weight:800;letter-spacing:-.03em;line
 h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-height:1.04}
 .lede{font-size:clamp(1.1rem,2.2vw,1.5rem);color:var(--muted);margin-top:1.4rem;max-width:40ch;line-height:1.45}
 .slide--ink .lede{color:rgba(238,243,242,.8)}
+.lead{font-size:clamp(1.02rem,1.8vw,1.25rem);color:var(--muted);margin-top:1.1rem;max-width:56ch;line-height:1.5}
+.slide--ink .lead{color:rgba(238,243,242,.78)}
 .accent{color:var(--accent)}
 .slide--ink .accent{color:#3ad0b4}
 .punch{font-size:clamp(1.15rem,2.4vw,1.7rem);font-weight:700;margin-top:1.8rem}
@@ -63,9 +65,11 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 .cardbox p{color:var(--muted);font-size:.98rem;line-height:1.4}
 .slide--ink .cardbox p{color:rgba(238,243,242,.72)}
 
-.five{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:2.2rem}
-.five .chip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem .9rem;text-align:center;font-weight:700;font-size:1rem;line-height:1.25}
-.five .chip span{display:block;color:var(--accent);font-size:1.5rem;margin-bottom:.5rem}
+.five{display:grid;grid-template-columns:repeat(5,1fr);gap:.7rem;margin-top:2rem}
+.five .chip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem .95rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.45rem}
+.five .chip .ico{color:var(--accent);font-size:1.5rem;line-height:1}
+.five .chip b{font-weight:700;font-size:1rem;line-height:1.2}
+.five .chip em{font-style:normal;color:var(--muted);font-size:.82rem;line-height:1.35}
 
 /* flow */
 .flow{display:grid;gap:.6rem;margin-top:2rem;max-width:760px}
@@ -121,6 +125,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     <h1>Baseline</h1>
     <p class="title__tagline">The Financial Operating System for Healthcare.</p>
     <p class="title__sub">Healthcare is the only major expense without one.</p>
+    <p class="lead">An app that connects your HSA, insurance, pharmacy, and bank, then finds what's eligible, files your reimbursements, compares prices, and shows the smartest way to pay.</p>
     <p class="title__url">baselinebenefits.com</p>
   </div>
 </section>
@@ -130,6 +135,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">01 · The problem</span>
   <div class="wrap">
     <h2>Healthcare runs on <span class="accent">paperwork</span>, not software.</h2>
+    <p class="lead">Americans spend more on healthcare than almost anything else, yet manage it with none of the tools they expect for the rest of their money.</p>
     <ul class="plist">
       <li>People don't know what their HSA actually covers.</li>
       <li>Thousands in reimbursements go unclaimed.</li>
@@ -146,6 +152,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">02 · Why now</span>
   <div class="wrap">
     <h2>Three shifts made this possible.</h2>
+    <p class="lead">The tools to fix healthcare's money problem only recently came together.</p>
     <div class="cols">
       <div class="cardbox"><h3>AI</h3><p>People now expect a proactive assistant to handle the hard stuff.</p></div>
       <div class="cardbox"><h3>Price transparency</h3><p>New rules finally made healthcare pricing data usable.</p></div>
@@ -170,11 +177,11 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <div class="wrap">
     <h2>One platform. Five systems.</h2>
     <div class="five">
-      <div class="chip"><span>◫</span>Unified Health Wallet</div>
-      <div class="chip"><span>✓</span>Eligibility Engine</div>
-      <div class="chip"><span>℞</span>Pharmacy Optimization</div>
-      <div class="chip"><span>↻</span>Reimbursement Automation</div>
-      <div class="chip"><span>★</span>AI Health CFO</div>
+      <div class="chip"><span class="ico">◫</span><b>Unified Health Wallet</b><em>All your health money (HSA, FSA, cards) in one place.</em></div>
+      <div class="chip"><span class="ico">✓</span><b>Eligibility Engine</b><em>Knows what's covered or HSA-eligible, down to the item.</em></div>
+      <div class="chip"><span class="ico">℞</span><b>Pharmacy Optimization</b><em>Compares every price so you never overpay for a prescription.</em></div>
+      <div class="chip"><span class="ico">↻</span><b>Reimbursement Automation</b><em>Files the paperwork and recovers money you're owed.</em></div>
+      <div class="chip"><span class="ico">★</span><b>AI Health CFO</b><em>Explains every move and plans for what's coming.</em></div>
     </div>
   </div>
 </section>
@@ -199,6 +206,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">06 · Why we win</span>
   <div class="wrap">
     <h2>Everyone solves one piece. We connect them.</h2>
+    <p class="lead">Today you'd need four different tools to do what Baseline does, and none of them talk to each other.</p>
     <div class="rows">
       <div class="row"><span class="who">GoodRx</span><span class="gap">price only</span></div>
       <div class="row"><span class="who">Insurer &amp; HSA portals</span><span class="gap">no guidance</span></div>
@@ -215,6 +223,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">07 · Business model</span>
   <div class="wrap">
     <h2>Free for you. Paid by the money we move.</h2>
+    <p class="lead">Baseline is free for the people who use it. We earn from the savings and transactions we create, never from your pocket.</p>
     <ul class="streams">
       <li>Prescription discount transaction fees</li>
       <li>HSA / FSA "unlock" fees from merchants</li>
@@ -232,6 +241,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">08 · Where it goes</span>
   <div class="wrap">
     <h2>From HSA optimization to the layer under <span class="accent">every</span> healthcare payment.</h2>
+    <p class="lead">We start with prescriptions and HSAs, then expand into the rest of healthcare spending.</p>
     <ul class="plist">
       <li>Medical-bill auditing</li>
       <li>Care-cost forecasting</li>
