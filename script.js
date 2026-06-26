@@ -6,6 +6,17 @@
     try { if (typeof gtag === "function") gtag("event", name, params || {}); } catch (e) {}
   }
 
+  // ---- dark mode toggle (theme set early by inline <head> script) ----
+  var themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      track("theme_toggle", { theme: next });
+    });
+  }
+
   // sticky nav border
   var nav = document.getElementById("nav");
   if (nav) {

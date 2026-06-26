@@ -173,3 +173,33 @@ sup a:hover { text-decoration: underline; }
 .fcard__sub { font-size: .9rem; }
 .fcard__rec { font-size: .85rem; }
 .phone__note { font-size: .9rem; }
+
+/* theme toggle button */
+.theme-toggle { display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.theme-toggle:hover { background: var(--card); color: var(--accent); border-color: var(--accent); }
+.theme-toggle .i-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
+:root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
+
+/* ---------- dark mode (home page) ---------- */
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f1a16;
+  --card:  #17241f;
+  --ink:   #e9f1ee;
+  --muted: #9fb2ab;
+  --line:  #2a3a33;
+  --accent: #1ab598;
+  --accent-2: #149a80;
+}
+/* components that used --ink as a dark surface, retuned for a dark page */
+:root[data-theme="dark"] .nav { background: rgba(15,26,22,.85); }
+:root[data-theme="dark"] .panel--dark { background: var(--card); color: var(--ink); }
+:root[data-theme="dark"] .footer { background: #0b1310; color: rgba(233,241,238,.6); }
+:root[data-theme="dark"] .footer .brand,
+:root[data-theme="dark"] .footer__tag { color: var(--ink); }
+:root[data-theme="dark"] .footer rect { fill: var(--ink); }
+:root[data-theme="dark"] .footer__notes li { color: rgba(233,241,238,.5); }
+:root[data-theme="dark"] .footer__notes a { color: rgba(233,241,238,.85); }
+:root[data-theme="dark"] .btn--solid:hover { background: var(--accent); color: #06120e; }
