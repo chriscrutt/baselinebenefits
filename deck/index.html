@@ -315,7 +315,12 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     bar.style.width=((i+1)/slides.length*100)+'%';
     history.replaceState(null,'','#s'+(i+1));
     window.scrollTo(0,0);
-    if(typeof gtag==='function'){gtag('event','slide_view',{slide_number:i+1,slide_total:slides.length});if(i===slides.length-1){gtag('event','deck_complete');}}
+    if(typeof gtag==='function'){
+      var el=slides[i], t=el.querySelector('.slide__tag'), h=el.querySelector('h1,h2');
+      var name=(t&&t.textContent.trim())||(h&&h.textContent.trim().slice(0,50))||('Slide '+(i+1));
+      gtag('event','slide_view',{slide_number:i+1,slide_total:slides.length,slide_name:name});
+      if(i===slides.length-1){gtag('event','deck_complete');}
+    }
   }
   function next(){show(i+1)} function prev(){show(i-1)}
   document.addEventListener('keydown',function(e){
