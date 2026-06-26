@@ -51,6 +51,7 @@ h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
 .nav { position: sticky; top: 0; z-index: 20; background: rgba(238,243,242,.85); backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s; }
 .nav.is-stuck { border-bottom-color: var(--line); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav__right { display: inline-flex; align-items: center; gap: .5rem; }
 .brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
 .brand--sm { font-size: 1.1rem; }
 .nav .btn { padding: .55em 1.05em; font-size: .95rem; }
