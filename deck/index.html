@@ -4,27 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0JN7B5VVE1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0JN7B5VVE1');
-</script>
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xdabrymzb3");
-</script>
-
 <title>Baseline Benefits · Pitch Deck</title>
 <meta name="description" content="Baseline Benefits · the financial operating system for healthcare. Investor deck." />
 <meta name="theme-color" content="#13211C" />
-<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="robots" content="noindex" />
 <link rel="canonical" href="https://baselinebenefits.com/deck/" />
 <meta property="og:site_name" content="Baseline Benefits" />
 <meta property="og:locale" content="en_US" />
@@ -40,12 +23,15 @@
 <meta name="twitter:title" content="Baseline Benefits · Pitch Deck" />
 <meta name="twitter:description" content="The financial operating system for healthcare." />
 <meta name="twitter:image" content="https://baselinebenefits.com/og.png" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2313211C'/%3E%3Cpath d='M6 11 H13 V17 H20 V23 H26' fill='none' stroke='%230E7C6C' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" href="/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin />
 <style>
+@font-face{
+  font-family:"Hanken Grotesk";font-style:normal;font-weight:400 800;font-display:swap;
+  src:url("/fonts/hanken-grotesk.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 :root{
   --paper:#EEF3F2; --card:#FFFFFF; --ink:#13211C; --muted:#586863; --line:#DDE7E3;
   --accent:#0E7C6C; --accent-2:#0A5D51;
@@ -56,16 +42,16 @@ html,body{height:100%}
 body{font-family:var(--sans);background:var(--ink);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased}
 body:focus{outline:none}
 
-.slide{position:fixed;inset:0;display:none;flex-direction:column;justify-content:center;
+.slide{position:fixed;inset:0;display:none;flex-direction:column;justify-content:flex-start;
   background:var(--paper);padding:clamp(2rem,6vw,6rem);overflow:auto}
 .slide.is-active{display:flex;animation:fade .45s ease}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .slide--ink{background:var(--ink);color:var(--paper)}
-.wrap{width:100%;max-width:1000px;margin-inline:auto}
+.wrap{width:100%;max-width:1000px;margin:auto}
 
 .mark{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;letter-spacing:-.02em;font-size:1.15rem}
 .slide--ink .mark{color:var(--paper)}
-.slide__tag{position:absolute;top:clamp(1.5rem,4vw,2.75rem);left:clamp(2rem,6vw,6rem);
+.slide__tag{position:absolute;top:clamp(1.5rem,4vw,2.75rem);left:max(4.8rem,clamp(2rem,6vw,6rem));
   font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .slide--ink .slide__tag{color:#34c8ad}
 
@@ -127,7 +113,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 .streams li::before{content:"+";position:absolute;left:0;color:#3ad0b4;font-weight:800}
 
 /* nav + progress */
-.progress{position:fixed;top:0;left:0;height:4px;background:var(--accent);width:10%;transition:width .35s ease;z-index:50}
+.progress{position:fixed;top:0;left:0;height:4px;background:var(--accent);width:9.1%;transition:width .35s ease;z-index:50}
 .nav{position:fixed;bottom:1.4rem;right:1.6rem;display:flex;align-items:center;gap:.7rem;z-index:50}
 .nav button{width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);
   font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .2s}
@@ -143,6 +129,13 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   .cols,.five{grid-template-columns:1fr 1fr}
   .streams{grid-template-columns:1fr}
   .hint{display:none}
+}
+@media (max-width:480px){
+  .cols,.five{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .slide.is-active{animation:none}
+  .progress{transition:none}
 }
 
 @media print{
@@ -171,6 +164,23 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 .hint{font-size:.9rem}
 .counter{font-size:.95rem}
 </style>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0JN7B5VVE1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0JN7B5VVE1');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xdabrymzb3");
+</script>
 </head>
 <body>
 <div class="progress" id="bar"></div>
@@ -194,13 +204,12 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     <h2>Healthcare runs on <span class="accent">paperwork</span>, not software.</h2>
     <p class="lead">Americans spend more on healthcare than almost anything else, yet manage it with none of the tools they expect for the rest of their money.</p>
     <ul class="plist">
-      <li>People don't know what their HSA actually covers.</li>
-      <li>Thousands in reimbursements go unclaimed.</li>
-      <li>Prescription prices swing wildly for the same drug.</li>
-      <li>Medical bills hide costly errors.</li>
-      <li>Insurance decisions are guesswork.</li>
-      <li>No one gives you a straight, personal answer.</li>
+      <li>Most people can't say what their HSA covers, so tax-free money sits unused.</li>
+      <li>Same drug, same pharmacy: a $29 copay when the cash price is $12. Nobody tells you.</li>
+      <li>Reimbursements go unfiled because the paperwork is miserable.</li>
+      <li>Medical bills hide costly errors, and no tool checks them for you.</li>
     </ul>
+    <p class="note">Prices illustrative; discount cash prices often beat copays (GoodRx).</p>
   </div>
 </section>
 
@@ -254,7 +263,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
       <div class="step"><span class="num">3</span><span><b>"Pay $12 with GoodRx,"</b> &nbsp;or&nbsp; <b>"Use insurance, you're near your deductible."</b></span></div>
       <div class="step"><span class="num">4</span>Filled, then <b>auto-reimbursed from your HSA</b>. No paperwork.</div>
     </div>
-    <p class="note">Illustrative example. Eligibility and pricing vary by plan.</p>
+    <p class="note">Illustrative example; eligibility and pricing vary by plan. Financial guidance only: a rules engine built on IRS Pub 502 makes the call, the AI explains it, and we never suggest changing a medication.</p>
   </div>
 </section>
 
@@ -263,7 +272,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">06 · Why us</span>
   <div class="wrap">
     <h2>Everyone solves one piece. We connect them.</h2>
-    <p class="lead">Today you'd need four different tools to do what Baseline Benefits does, and none of them talk to each other.</p>
+    <p class="lead">Each of these optimizes one number. The right call depends on four at once: today's price, your deductible position, the HSA tax break, and what you'll spend next. None of them can see all four.</p>
     <div class="rows">
       <div class="row"><span class="who">GoodRx</span><span class="gap">price only</span></div>
       <div class="row"><span class="who">Insurer &amp; HSA portals</span><span class="gap">no guidance</span></div>
@@ -280,16 +289,16 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   <span class="slide__tag">07 · Business model</span>
   <div class="wrap">
     <h2>Free for you. Paid by the money we move.</h2>
-    <p class="lead">Baseline Benefits is free for the people who use it. We earn from the savings and transactions we create, never from your pocket.</p>
+    <p class="lead">Free for the people who use it. We earn from pharmacies, merchants, and card rails, plus a cut of the money we recover, and none of it depends on employer or health-plan budgets.</p>
     <ul class="streams">
       <li>Prescription discount transaction fees</li>
       <li>Fees from merchants who accept HSA / FSA</li>
       <li>Interchange + interest on HSA balances</li>
       <li>Pharma copay &amp; assistance programs</li>
-      <li>A small cut of reimbursements we recover</li>
+      <li>A cut of recovered reimbursements, earned only when you get paid</li>
       <li>Employer &amp; health-plan contracts (expansion)</li>
     </ul>
-    <p class="punch">It doesn't depend on <span class="accent">payer budgets</span>.</p>
+    <p class="punch">Fees like these are <span class="accent">about 82%</span> of GoodRx revenue.</p>
   </div>
 </section>
 
@@ -300,32 +309,30 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     <h2>From HSA optimization to the layer under <span class="accent">every</span> healthcare payment.</h2>
     <p class="lead">We start with prescriptions and HSAs, then expand into the rest of healthcare spending.</p>
     <ul class="plist">
-      <li>Medical-bill auditing</li>
-      <li>Care-cost forecasting</li>
-      <li>Preventive-care nudges that save money</li>
-      <li>Employer cost reduction</li>
-      <li>Medicaid financial guidance</li>
-      <li>Autonomous healthcare payments</li>
+      <li>Medical-bill auditing: find the billing error, file the dispute.</li>
+      <li>Employer and health-plan contracts: the same engine, sold to the people who carry the cost.</li>
+      <li>Medicare and Medicaid guidance: the households hit hardest by out-of-pocket costs.</li>
     </ul>
   </div>
 </section>
 
-<!-- 9 TEAM -->
+<!-- 10 TEAM -->
 <section class="slide">
   <span class="slide__tag">09 · Team</span>
   <div class="wrap">
     <h2>Built by someone who's <span class="accent">lived this</span>.</h2>
-    <p class="lead">Christopher Cruttenden, founder. He grew up in fintech (his family founded Acorns, the app that made investing simple for everyday people), has worked in health tech alongside his father, and has personally fought the HSA and benefits maze. He studied humanities at Cal Poly San Luis Obispo, which shapes how he builds: around people, not paperwork.</p>
-    <p class="lead">Now assembling the fintech, health-benefits, and AI expertise to build the rest.</p>
+    <p class="lead">Christopher Cruttenden, founder. He has fought the HSA and benefits maze himself; that fight is the product. He grew up inside fintech (his grandfather and uncle founded Acorns, the app that made investing simple for everyday people) and has worked in health tech alongside his father.</p>
+    <p class="lead">Hiring next: payments, health benefits, and AI engineering.</p>
   </div>
 </section>
 
-<!-- 10 CLOSE -->
+<!-- 11 CLOSE -->
 <section class="slide slide--ink">
   <div class="wrap">
     <h1>Healthcare should work like modern finance.</h1>
-    <p class="lede">Baseline Benefits handles the money side of your health, so you don't have to.</p>
-    <p class="title__url">baselinebenefits.com&nbsp;&nbsp;·&nbsp;&nbsp;christopher@baselinebenefits.com</p>
+    <p class="lede">Baseline Benefits finds the money your benefits already owe you.</p>
+    <p class="lead">Today: waitlist open at baselinebenefits.com. First build: the eligibility and reimbursement engine. Talking to early investors and partners now.</p>
+    <p class="title__url">Christopher Cruttenden, founder&nbsp;&nbsp;·&nbsp;&nbsp;christopher@baselinebenefits.com&nbsp;&nbsp;·&nbsp;&nbsp;baselinebenefits.com</p>
   </div>
 </section>
 
@@ -333,7 +340,7 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 <div class="hint">← → or scroll to move · ✕ (top-left) or Esc to exit</div>
 <nav class="nav">
   <button id="prev" aria-label="Previous slide">‹</button>
-  <span class="counter" id="counter">1 / 10</span>
+  <span class="counter" id="counter" role="status">01 / 11</span>
   <button id="next" aria-label="Next slide">›</button>
 </nav>
 
@@ -342,20 +349,31 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var bar=document.getElementById('bar');
   var counter=document.getElementById('counter');
-  var i=0;
+  var i=-1,deckDone=false;
   function show(n){
-    i=Math.max(0,Math.min(slides.length-1,n));
+    n=Math.max(0,Math.min(slides.length-1,n));
+    if(n===i)return;
+    i=n;
     slides.forEach(function(s,k){s.classList.toggle('is-active',k===i)});
+    slides[i].scrollTop=0;
     var _n=slides.length;counter.textContent=String(i+1).padStart(String(_n).length,'0')+' / '+_n;
-    bar.style.width=((i+1)/slides.length*100)+'%';
+    bar.style.width=((i+1)/_n*100)+'%';
     history.replaceState(null,'','#s'+(i+1));
     window.scrollTo(0,0);
+    var last=(i===_n-1&&!deckDone);
+    if(last)deckDone=true;
+    var el=slides[i], t=el.querySelector('.slide__tag'), h=el.querySelector('h1,h2');
+    var name=(t&&t.textContent.trim())||(h&&h.textContent.trim().slice(0,50))||('Slide '+(i+1));
     if(typeof gtag==='function'){
-      var el=slides[i], t=el.querySelector('.slide__tag'), h=el.querySelector('h1,h2');
-      var name=(t&&t.textContent.trim())||(h&&h.textContent.trim().slice(0,50))||('Slide '+(i+1));
-      gtag('event','slide_view',{slide_number:i+1,slide_total:slides.length,slide_name:name});
-      if(i===slides.length-1){gtag('event','deck_complete');}
+      gtag('event','slide_view',{slide_number:i+1,slide_total:_n,slide_name:name});
+      if(last){gtag('event','deck_complete');}
     }
+    try{
+      if(typeof clarity==='function'){
+        clarity('event','slide_view');
+        if(last){clarity('event','deck_complete');clarity('upgrade','deck_complete');}
+      }
+    }catch(e){}
   }
   function next(){show(i+1)} function prev(){show(i-1)}
   document.addEventListener('keydown',function(e){
@@ -368,18 +386,28 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   function focusDeck(){try{document.body.focus();}catch(e){}}
   document.getElementById('next').onclick=function(){next();focusDeck();};
   document.getElementById('prev').onclick=function(){prev();focusDeck();};
-  var x0=null;
-  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  var x0=null,y0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
   document.addEventListener('touchend',function(e){
-    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
-    if(Math.abs(dx)>45){dx<0?next():prev();}x0=null;
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;
+    if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5){dx<0?next():prev();}
+    x0=null;y0=null;
   },{passive:true});
-  var wheelLock=false;
+  /* one advance per scroll gesture: accumulate deltas, fire once, reset after 160ms of silence */
+  var wheelAcc=0,wheelLast=0,wheelDone=false;
   window.addEventListener('wheel',function(e){
-    if(wheelLock||Math.abs(e.deltaY)<12)return;
-    wheelLock=true;
-    (e.deltaY>0?next:prev)();
-    setTimeout(function(){wheelLock=false},650);
+    var now=Date.now();
+    var dy=e.deltaY*(e.deltaMode===1?33:e.deltaMode===2?window.innerHeight:1);
+    var s=slides[i];
+    if(s&&(dy>0?s.scrollTop+s.clientHeight<s.scrollHeight-1:s.scrollTop>0)){
+      wheelAcc=0;wheelDone=true;wheelLast=now;return;
+    }
+    if(now-wheelLast>160){wheelAcc=0;wheelDone=false;}
+    wheelLast=now;
+    if(wheelDone)return;
+    wheelAcc+=dy;
+    if(Math.abs(wheelAcc)>=60){wheelDone=true;(wheelAcc>0?next:prev)();}
   },{passive:true});
   var m=location.hash.match(/^#s(\d+)/);
   show(m?parseInt(m[1],10)-1:0);
