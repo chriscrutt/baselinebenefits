@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /deck/baseline-benefits-deck.pdf
 
 Sitemap: https://baselinebenefits.com/sitemap.xml

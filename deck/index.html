@@ -124,6 +124,11 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
   border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.05rem;line-height:1;
   display:grid;place-items:center;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
 .home:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pdfbtn{position:fixed;top:1.5rem;right:1.6rem;z-index:60;display:inline-flex;align-items:center;gap:.45rem;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
+  padding:.5em 1em;font-size:.85rem;font-weight:700;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.pdfbtn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pdfbtn:focus-visible{outline:2px solid #fff;outline-offset:2px}
 
 @media (max-width:720px){
   .cols,.five{grid-template-columns:1fr 1fr}
@@ -140,9 +145,10 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 
 @media print{
   @page{size:landscape;margin:0}
-  body{overflow:visible;background:#fff}
-  .slide{position:relative;inset:auto;display:flex !important;height:100vh;page-break-after:always;animation:none}
-  .nav,.progress,.hint,.home{display:none !important}
+  body{overflow:visible;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slide{position:relative;inset:auto;display:flex !important;height:100vh;overflow:hidden;page-break-after:always;animation:none}
+  .slide:last-of-type{page-break-after:auto}
+  .nav,.progress,.hint,.home,.pdfbtn{display:none !important}
 }
 
 /* readability: larger type for a self-paced web deck */
@@ -337,6 +343,10 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
 </section>
 
 <a class="home" href="/" aria-label="Back to homepage" title="Home (Esc)">&times;</a>
+<a class="pdfbtn" id="pdfBtn" href="baseline-benefits-deck.pdf" download="baseline-benefits-deck.pdf">
+  <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 9l6 6 6-6M4 21h16"/></svg>
+  Download PDF
+</a>
 <div class="hint">← → or scroll to move · ✕ (top-left) or Esc to exit</div>
 <nav class="nav">
   <button id="prev" aria-label="Previous slide">‹</button>
@@ -409,6 +419,11 @@ h2{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;letter-spacing:-.025em;line-
     wheelAcc+=dy;
     if(Math.abs(wheelAcc)>=60){wheelDone=true;(wheelAcc>0?next:prev)();}
   },{passive:true});
+  var pdf=document.getElementById('pdfBtn');
+  if(pdf){pdf.addEventListener('click',function(){
+    if(typeof gtag==='function')gtag('event','deck_download',{});
+    try{if(typeof clarity==='function')clarity('event','deck_download');}catch(e){}
+  });}
   var m=location.hash.match(/^#s(\d+)/);
   show(m?parseInt(m[1],10)-1:0);
   document.body.tabIndex=-1; focusDeck();
